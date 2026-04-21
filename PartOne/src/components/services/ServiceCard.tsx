@@ -11,12 +11,13 @@ const surfaceShell: Record<ServiceItem["surface"], string> = {
   secondary: `${cardShell} bg-secondary text-white`,
 };
 
-const titleClass: Record<ServiceItem["titleTone"], string> = {
-  primary: "text-primary",
-  white: "text-white",
-};
-
-export const ServiceCard = ({ line1, line2, surface, titleTone, image }: ServiceItem) => {
+export const ServiceCard = ({
+  line1,
+  line2,
+  surface,
+  titleHighlight,
+  image,
+}: ServiceItem) => {
   const arrowTone = surface === "secondary" ? "white" : "dark";
   const learnTextClass =
     surface === "secondary" ? "text-white" : "text-secondary";
@@ -27,7 +28,7 @@ export const ServiceCard = ({ line1, line2, surface, titleTone, image }: Service
         <ServiceTwoLineTitle
           line1={line1}
           line2={line2}
-          className={titleClass[titleTone]}
+          highlight={titleHighlight}
         />
       </div>
 

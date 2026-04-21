@@ -3,9 +3,10 @@ import { SectionIntro } from "../components/landing/SectionIntro";
 import { SectionTitleBadge } from "../components/landing/SectionTitleBadge";
 import { ServiceCard } from "../components/services/ServiceCard";
 import { SERVICES } from "../data/services";
+import { SECTION_LEAD_PARAGRAPH_CLASS } from "../utils/sectionIntroContent";
 
 const servicesIntroDescription = (
-  <p className="w-full max-w-[min(100%,900px)] text-xl font-normal leading-[1.45] text-secondary md:max-w-[min(100%,1000px)] lg:max-w-[1040px]">
+  <p className={SECTION_LEAD_PARAGRAPH_CLASS}>
     At our digital marketing agency, we offer a range of services to help businesses grow and
     succeed online.
     <br />

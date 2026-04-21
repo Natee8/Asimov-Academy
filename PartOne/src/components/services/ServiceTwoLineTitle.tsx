@@ -1,20 +1,30 @@
+import type { ServiceTitleHighlight } from "../../data/services";
+
 type ServiceTwoLineTitleProps = {
   line1: string;
   line2: string;
-  /** Classes do título (ex.: text-primary, text-white) */
-  className: string;
+  /** Fundo do grifo: primary (verde) ou white; texto secondary (preto) */
+  highlight: ServiceTitleHighlight;
 };
+
+const highlightShell: Record<ServiceTitleHighlight, string> = {
+  primary: "bg-primary text-secondary",
+  white: "bg-background text-secondary",
+};
+
+const lineClass =
+  "inline-block w-fit max-w-full rounded-[7px] px-2.5 py-0.5 text-[22px] font-medium leading-[1.2] md:text-[26px] xl:text-[30px]";
 
 export const ServiceTwoLineTitle = ({
   line1,
   line2,
-  className,
-}: ServiceTwoLineTitleProps) => (
-  <h3
-    className={`text-[22px] font-medium leading-[1.2] md:text-[26px] xl:text-[30px] ${className}`}
-  >
-    {line1}
-    <br />
-    {line2}
-  </h3>
-);
+  highlight,
+}: ServiceTwoLineTitleProps) => {
+  const hi = highlightShell[highlight];
+  return (
+    <h3 className="flex flex-col items-start gap-1">
+      <span className={`${lineClass} ${hi}`}>{line1}</span>
+      <span className={`${lineClass} ${hi}`}>{line2}</span>
+    </h3>
+  );
+};

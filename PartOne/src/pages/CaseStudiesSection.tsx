@@ -3,6 +3,13 @@ import { PageShell } from "../components/layout/PageShell";
 import { SectionIntro } from "../components/landing/SectionIntro";
 import { SectionTitleBadge } from "../components/landing/SectionTitleBadge";
 import { CASE_STUDIES } from "../data/caseStudies";
+import { SECTION_LEAD_PARAGRAPH_CLASS } from "../utils/sectionIntroContent";
+
+const caseStudiesIntroDescription = (
+  <p className={SECTION_LEAD_PARAGRAPH_CLASS}>
+    Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies
+  </p>
+);
 
 export const CaseStudiesSection = () => {
   return (
@@ -18,7 +25,7 @@ export const CaseStudiesSection = () => {
               Case Studies
             </SectionTitleBadge>
           }
-          description="Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies"
+          description={caseStudiesIntroDescription}
         />
 
         <div className="hidden overflow-hidden rounded-[45px] border border-secondary bg-secondary md:block">

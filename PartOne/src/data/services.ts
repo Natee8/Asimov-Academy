@@ -7,13 +7,14 @@ import serviceTwo from "../assets/services/serviceTwo.svg";
 
 export type ServiceSurface = "default" | "primary" | "secondary";
 
-export type ServiceTitleTone = "primary" | "white";
+/** Fundo do “grifo” do título: primary = verde, white = branco; texto sempre secondary (preto) */
+export type ServiceTitleHighlight = "primary" | "white";
 
 export type ServiceItem = {
   line1: string;
   line2: string;
   surface: ServiceSurface;
-  titleTone: ServiceTitleTone;
+  titleHighlight: ServiceTitleHighlight;
   image: string;
 };
 
@@ -22,42 +23,42 @@ export const SERVICES: readonly ServiceItem[] = [
     line1: "Search engine",
     line2: "optimization",
     surface: "default",
-    titleTone: "primary",
+    titleHighlight: "primary",
     image: serviceOne,
   },
   {
     line1: "Pay-per-click",
     line2: "advertising",
     surface: "primary",
-    titleTone: "white",
+    titleHighlight: "white",
     image: serviceTwo,
   },
   {
     line1: "Social Media",
     line2: "Marketing",
     surface: "secondary",
-    titleTone: "white",
+    titleHighlight: "white",
     image: serviceThree,
   },
   {
     line1: "Email",
     line2: "Marketing",
     surface: "default",
-    titleTone: "primary",
+    titleHighlight: "primary",
     image: serviceFour,
   },
   {
     line1: "Content",
     line2: "Creation",
     surface: "primary",
-    titleTone: "white",
+    titleHighlight: "white",
     image: serviceFive,
   },
   {
     line1: "Analytics and",
     line2: "Tracking",
     surface: "secondary",
-    titleTone: "primary",
+    titleHighlight: "primary",
     image: serviceSix,
   },
 ];
