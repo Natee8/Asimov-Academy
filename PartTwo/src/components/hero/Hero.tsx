@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, PlayCircle } from "lucide-react";
-import { useCallback, useEffect, useRef, useState, type PointerEvent } from "react";
+import { useCallback, useEffect, useRef, type PointerEvent } from "react";
 import CodePreview from "./CodePreview";
 import {
   CURSOR_SRC_DEFAULT,
@@ -34,9 +34,11 @@ const Hero = () => {
   const cursorImgRef = useRef<HTMLImageElement>(null);
   const reduceMotionRef = useRef(false);
   const rafRef = useRef<number>(0);
-  const pendingRef = useRef<{ xPx: number; yPx: number; pointer: boolean } | null>(null);
+  const pendingRef = useRef<{ clientX: number; clientY: number } | null>(null);
   const lastPointerRef = useRef<boolean | null>(null);
-  const [cursorPressed, setCursorPressed] = useState(false);
+  const pressedRef = useRef(false);
+  const lastHitRef = useRef({ x: 0, y: 0, pointer: false, t: 0 });
+  const lastClientRef = useRef({ clientX: 0, clientY: 0 });
 
   useEffect(() => {
     reduceMotionRef.current = window.matchMedia(
@@ -45,30 +47,25 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    const release = () => setCursorPressed(false);
+    const preload = (src: string) => {
+      const im = new Image();
+      im.decoding = "async";
+      im.src = src;
+    };
+    preload(CURSOR_SRC_DEFAULT);
+    preload(CURSOR_SRC_POINTER);
+  }, []);
+
+  useEffect(() => {
+    const release = () => {
+      pressedRef.current = false;
+    };
     window.addEventListener("pointerup", release);
     window.addEventListener("pointercancel", release);
     return () => {
       window.removeEventListener("pointerup", release);
       window.removeEventListener("pointercancel", release);
     };
-  }, []);
-
-  const flushCursor = useCallback(() => {
-    rafRef.current = 0;
-    const section = sectionRef.current;
-    const wrap = cursorWrapRef.current;
-    const img = cursorImgRef.current;
-    const p = pendingRef.current;
-    if (!section || !wrap || !img || !p) return;
-    if (reduceMotionRef.current) return;
-    const { x: hotspotX, y: hotspotY } = cursorHotspotPx(p.pointer);
-    wrap.style.opacity = "1";
-    wrap.style.transform = `translate3d(${p.xPx - hotspotX}px, ${p.yPx - hotspotY}px, 0)`;
-    if (lastPointerRef.current !== p.pointer) {
-      lastPointerRef.current = p.pointer;
-      img.src = p.pointer ? CURSOR_SRC_POINTER : CURSOR_SRC_DEFAULT;
-    }
   }, []);
 
   const hitInteractive = useCallback((clientX: number, clientY: number, root: HTMLElement) => {
@@ -84,21 +81,55 @@ const Hero = () => {
     return false;
   }, []);
 
+  const flushCursor = useCallback(() => {
+    rafRef.current = 0;
+    const section = sectionRef.current;
+    const wrap = cursorWrapRef.current;
+    const img = cursorImgRef.current;
+    const pending = pendingRef.current;
+    if (!section || !wrap || !img || !pending) return;
+    if (reduceMotionRef.current) return;
+
+    const { clientX, clientY } = pending;
+    const r = section.getBoundingClientRect();
+    const xPx = clientX - r.left;
+    const yPx = clientY - r.top;
+
+    const now = performance.now();
+    const lh = lastHitRef.current;
+    const dx = clientX - lh.x;
+    const dy = clientY - lh.y;
+    const moved = dx * dx + dy * dy > 36;
+    const stale = now - lh.t > 48;
+    let pointer = lh.pointer;
+    if (moved || stale) {
+      pointer = hitInteractive(clientX, clientY, section);
+      lastHitRef.current = { x: clientX, y: clientY, pointer, t: now };
+    }
+
+    const { x: hotspotX, y: hotspotY } = cursorHotspotPx(pointer);
+    const scale = pressedRef.current ? 0.94 : 1;
+    wrap.style.opacity = "1";
+    wrap.style.transform = `translate3d(${xPx - hotspotX}px, ${yPx - hotspotY}px, 0) scale(${scale})`;
+
+    if (lastPointerRef.current !== pointer) {
+      lastPointerRef.current = pointer;
+      img.src = pointer ? CURSOR_SRC_POINTER : CURSOR_SRC_DEFAULT;
+    }
+  }, [hitInteractive]);
+
   const queueCursor = useCallback(
     (clientX: number, clientY: number) => {
       const el = sectionRef.current;
       if (!el || reduceMotionRef.current) return;
-      const r = el.getBoundingClientRect();
-      const xPx = clientX - r.left;
-      const yPx = clientY - r.top;
-      const pointer = hitInteractive(clientX, clientY, el);
-      pendingRef.current = { xPx, yPx, pointer };
+      lastClientRef.current = { clientX, clientY };
+      pendingRef.current = { clientX, clientY };
       if (rafRef.current) return;
       rafRef.current = requestAnimationFrame(() => {
         flushCursor();
       });
     },
-    [flushCursor, hitInteractive],
+    [flushCursor],
   );
 
   const handlePointerMove = (e: PointerEvent<HTMLElement>) => {
@@ -114,11 +145,19 @@ const Hero = () => {
     <section
       id="hero"
       ref={sectionRef}
-      onPointerDownCapture={() => setCursorPressed(true)}
+      onPointerDownCapture={(e) => {
+        pressedRef.current = true;
+        pendingRef.current = { clientX: e.clientX, clientY: e.clientY };
+        lastClientRef.current = { clientX: e.clientX, clientY: e.clientY };
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
+        rafRef.current = requestAnimationFrame(() => {
+          flushCursor();
+        });
+      }}
       onPointerMove={handlePointerMove}
       onPointerLeave={() => {
         handlePointerLeave();
-        setCursorPressed(false);
+        pressedRef.current = false;
       }}
       className="hero-custom-cursor relative flex min-h-screen flex-col overflow-x-clip motion-safe:cursor-none motion-reduce:cursor-auto"
       style={{ background: "var(--gradient-hero)" }}
@@ -286,7 +325,8 @@ const Hero = () => {
 
       <div
         ref={cursorWrapRef}
-        className={`pointer-events-none absolute left-0 top-0 z-[120] opacity-0 motion-reduce:hidden transition-transform duration-75 ${cursorPressed ? "scale-[0.94]" : "scale-100"}`}
+        className="pointer-events-none absolute left-0 top-0 z-[120] opacity-0 motion-reduce:hidden will-change-transform"
+        style={{ transformOrigin: "0 0" }}
         aria-hidden
       >
         <img
