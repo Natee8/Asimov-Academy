@@ -18,22 +18,22 @@ export function VsCodeHeroFrame({ children }: VsCodeHeroFrameProps) {
     EDITOR_TABS.find((t) => pathname === t.to)?.label ?? "hero_landing.py";
 
   return (
-    <div className="relative z-10 flex min-h-0 w-full flex-1 flex-col border-b border-border/60 bg-[hsl(222_22%_8%)]">
-      <div className="sticky top-0 z-[60] flex h-10 w-full shrink-0 items-center gap-3 border-b border-border/80 bg-[hsl(220_16%_9%)] px-3 shadow-[0_1px_0_0_hsl(222_40%_4%/0.4)] sm:h-11 sm:px-4">
-        <div className="flex shrink-0 gap-1.5" aria-hidden>
-          <span className="h-3 w-3 rounded-full bg-[hsl(0_72%_60%)]/90" />
-          <span className="h-3 w-3 rounded-full bg-[hsl(45_90%_55%)]/85" />
-          <span className="h-3 w-3 rounded-full bg-[hsl(140_50%_45%)]/80" />
+    <div className="relative z-10 flex min-h-0 w-full min-w-0 flex-1 flex-col border-b border-border/60 bg-[hsl(222_22%_8%)]">
+      <div className="sticky top-0 z-[60] flex h-10 w-full min-w-0 shrink-0 items-center gap-2 border-b border-border/80 bg-[hsl(220_16%_9%)] px-2 shadow-[0_1px_0_0_hsl(222_40%_4%/0.4)] sm:h-11 sm:gap-3 sm:px-4">
+        <div className="flex shrink-0 gap-1 sm:gap-1.5" aria-hidden>
+          <span className="h-2.5 w-2.5 rounded-full bg-[hsl(0_72%_60%)]/90 sm:h-3 sm:w-3" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[hsl(45_90%_55%)]/85 sm:h-3 sm:w-3" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[hsl(140_50%_45%)]/80 sm:h-3 sm:w-3" />
         </div>
-        <p className="min-w-0 flex-1 truncate text-center font-mono text-[11px] text-muted-foreground sm:text-xs">
+        <p className="min-w-0 flex-1 truncate text-center font-mono text-[10px] text-muted-foreground min-[380px]:text-[11px] sm:text-xs">
           Asimov Academy — Python + IA
         </p>
       </div>
 
-      <div className="flex min-h-0 w-full flex-1">
+      <div className="flex min-h-0 w-full min-w-0 flex-1">
         <aside
           className={cn(
-            "sticky top-10 z-[55] flex max-h-[calc(100dvh-2.5rem)] shrink-0 flex-col self-start overflow-y-auto border-r border-border/80 bg-[hsl(222_20%_8%)] py-3 transition-[width] duration-200 ease-out sm:top-11 sm:max-h-[calc(100dvh-2.75rem)] sm:py-4",
+            "vscode-scrollbar-y sticky top-10 z-[55] flex max-h-[calc(100dvh-2.5rem)] shrink-0 flex-col self-start overflow-y-auto border-r border-border/80 bg-[hsl(222_20%_8%)] py-3 transition-[width] duration-200 ease-out sm:top-11 sm:max-h-[calc(100dvh-2.75rem)] sm:py-4",
             authExpanded ? "w-[min(220px,82vw)] sm:w-56" : "w-[56px] sm:w-[60px]",
           )}
           aria-label="Conta"
@@ -97,7 +97,10 @@ export function VsCodeHeroFrame({ children }: VsCodeHeroFrameProps) {
         </aside>
 
         <div className="flex min-h-0 min-w-0 flex-1 flex-col bg-[hsl(222_35%_5%)]">
-          <div className="sticky top-10 z-[52] flex min-h-[2.75rem] w-full shrink-0 items-stretch overflow-x-auto border-b border-border/70 bg-[hsl(222_20%_10%)] sm:top-11">
+          <div
+            data-wheel-scroll-x
+            className="vscode-scrollbar-x sticky top-10 z-[52] flex min-h-[2.75rem] w-full min-w-0 shrink-0 items-stretch border-b border-border/70 bg-[hsl(222_20%_10%)] sm:top-11"
+          >
             {EDITOR_TABS.map((tab) => (
               <NavLink
                 key={tab.label}
@@ -105,7 +108,7 @@ export function VsCodeHeroFrame({ children }: VsCodeHeroFrameProps) {
                 end={tab.end}
                 className={({ isActive }) =>
                   cn(
-                    "relative flex shrink-0 items-center gap-2 border-r border-border/60 px-3 py-2.5 font-mono text-[11px] transition-colors sm:px-4 sm:text-xs",
+                    "relative flex shrink-0 items-center gap-1.5 border-r border-border/60 px-2.5 py-2 font-mono text-[10px] transition-colors sm:gap-2 sm:px-4 sm:py-2.5 sm:text-xs",
                     isActive
                       ? "bg-[hsl(222_35%_5%)] text-foreground after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-[hsl(222_35%_5%)]"
                       : "bg-transparent text-muted-foreground hover:bg-[hsl(222_22%_12%)] hover:text-foreground/90",

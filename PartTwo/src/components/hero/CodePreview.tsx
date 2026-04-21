@@ -16,7 +16,10 @@ const CodePreview = () => {
             <div key={i}>{i + 1}</div>
           ))}
         </div>
-        <pre className="overflow-x-auto py-6 pl-5 pr-2 text-foreground/90 sm:py-8 sm:pl-8 sm:pr-4">
+        <pre
+          data-wheel-scroll-x
+          className="vscode-scrollbar-x min-w-0 py-6 pl-5 pr-2 text-foreground/90 sm:py-8 sm:pl-8 sm:pr-4"
+        >
           <code>
             <span className="text-muted-foreground"># Seu primeiro projeto com IA</span>
             {"\n"}
