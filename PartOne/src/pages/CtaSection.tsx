@@ -1,4 +1,4 @@
-import pricingIllustration from "../assets/Pricing/Pricing.svg";
+import pricingIllustration from "../assets/pricing/pricing.svg";
 import { ButtonLink } from "../components/landing/ButtonLink";
 import { PageShell } from "../components/layout/PageShell";
 
