@@ -1,13 +1,4 @@
-import type { ReactNode } from "react";
-
-type ButtonVariant = "solid-dark" | "outline-dark" | "solid-lime";
-
-type ButtonLinkProps = {
-  href: string;
-  children: ReactNode;
-  variant: ButtonVariant;
-  className?: string;
-};
+import type { ButtonLinkProps, ButtonVariant } from "./types";
 
 const base =
   "inline-flex items-center justify-center rounded-[14px] text-center font-normal leading-none transition";

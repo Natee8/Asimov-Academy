@@ -1,6 +1,4 @@
-type CtaStarIllustrationProps = {
-  className?: string;
-};
+import type { CtaStarIllustrationProps } from "./types";
 
 export const CtaStarIllustration = ({
   className = "h-auto w-full max-w-[280px] shrink-0 text-primary md:max-w-[359px]",

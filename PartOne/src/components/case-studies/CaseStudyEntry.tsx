@@ -1,11 +1,5 @@
 import { LearnMoreLink } from "../landing/LearnMoreLink";
-import type { CaseStudy } from "../../data/caseStudies";
-
-type CaseStudyEntryProps = {
-  study: CaseStudy;
-  layout: "desktop" | "mobile";
-  showLeadingDivider?: boolean;
-};
+import type { CaseStudyEntryProps } from "./types";
 
 export const CaseStudyEntry = ({
   study,

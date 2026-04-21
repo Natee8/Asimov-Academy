@@ -1,13 +1,5 @@
-import type { ReactNode } from "react";
+import type { SectionIntroProps } from "./types";
 
-type SectionIntroProps = {
-  title: ReactNode;
-  description: ReactNode;
-};
-
-/**
- * Section title (lime badge style) + lead paragraph, used under the hero.
- */
 export const SectionIntro = ({ title, description }: SectionIntroProps) => (
   <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-10 xl:gap-[40px]">
     <div className="flex shrink-0 flex-wrap items-center gap-5">{title}</div>

@@ -1,11 +1,5 @@
 import type { ServiceTitleHighlight } from "../../data/services";
-
-type ServiceTwoLineTitleProps = {
-  line1: string;
-  line2: string;
-  /** Fundo do grifo: primary (verde) ou white; texto secondary (preto) */
-  highlight: ServiceTitleHighlight;
-};
+import type { ServiceTwoLineTitleProps } from "./types";
 
 const highlightShell: Record<ServiceTitleHighlight, string> = {
   primary: "bg-primary text-secondary",

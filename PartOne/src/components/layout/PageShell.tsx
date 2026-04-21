@@ -1,10 +1,5 @@
-import type { ReactNode } from "react";
 import { PAGE_SHELL_CLASS } from "../../utils/layout";
-
-type PageShellProps = {
-  children: ReactNode;
-  className?: string;
-};
+import type { PageShellProps } from "./types";
 
 export const PageShell = ({ children, className = "" }: PageShellProps) => (
   <div className={[PAGE_SHELL_CLASS, className].filter(Boolean).join(" ")}>

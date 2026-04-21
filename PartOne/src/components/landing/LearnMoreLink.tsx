@@ -1,20 +1,9 @@
 import arrowDark from "../../assets/icons/redirectDark.svg";
 import arrowWhite from "../../assets/icons/redirectWhite.svg";
+import type { LearnMoreLinkProps } from "./types";
 
-export type LearnMoreArrowTone = "dark" | "white";
+export type { LearnMoreArrowTone } from "./types";
 
-type LearnMoreLinkProps = {
-  href: string;
-  /** Ícone redirect: escuro em cards default/primary, branco em card secondary */
-  arrowTone: LearnMoreArrowTone;
-  label?: string;
-  className?: string;
-  textClassName?: string;
-};
-
-/**
- * Ícone 41×41 sem círculo extra; texto sem sublinhado. Ordem: ícone → label.
- */
 export const LearnMoreLink = ({
   href,
   arrowTone,
