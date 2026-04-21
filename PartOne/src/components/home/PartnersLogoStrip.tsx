@@ -8,7 +8,6 @@ import zoom from "../../assets/logos/zoom.svg";
 const stripClass =
   "flex flex-wrap items-center justify-between gap-8 py-6 md:gap-10 md:py-8 xl:flex-nowrap";
 
-/** Escala de cinza via filtro (SVG colorido vira cinza sem distorcer proporção) */
 const logoClass =
   "h-12 w-[124.11px] max-w-[min(124.11px,100%)] shrink-0 object-contain grayscale";
 

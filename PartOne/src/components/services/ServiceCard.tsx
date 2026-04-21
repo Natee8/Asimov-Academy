@@ -1,6 +1,6 @@
+import type { ServiceItem } from "../../config/services";
 import { LearnMoreLink } from "../landing/LearnMoreLink";
 import { ServiceTwoLineTitle } from "./ServiceTwoLineTitle";
-import type { ServiceItem } from "../../data/services";
 
 const cardShell =
   "relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-[30px] border border-secondary p-8 shadow-[0px_5px_0px_0px_#191A23] md:min-h-[310px] md:rounded-[45px] md:p-[50px]";

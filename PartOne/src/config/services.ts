@@ -7,7 +7,6 @@ import serviceTwo from "../assets/services/serviceTwo.svg";
 
 export type ServiceSurface = "default" | "primary" | "secondary";
 
-/** Fundo do “grifo” do título: primary = verde, white = branco; texto sempre secondary (preto) */
 export type ServiceTitleHighlight = "primary" | "white";
 
 export type ServiceItem = {

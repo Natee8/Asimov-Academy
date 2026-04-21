@@ -2,10 +2,6 @@ import { useEffect } from "react";
 
 const SELECTOR = "[data-wheel-scroll-x]";
 
-/**
- * Comportamento tipo VS Code: com o rato sobre uma zona de scroll horizontal,
- * a roda vertical desloca o conteúdo em X (em vez de fazer scroll da página).
- */
 export function useDocumentHorizontalWheelScroll() {
   useEffect(() => {
     const onWheel = (e: WheelEvent) => {

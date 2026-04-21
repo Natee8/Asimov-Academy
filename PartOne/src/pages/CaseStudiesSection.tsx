@@ -1,13 +1,14 @@
 import { CaseStudyEntry } from "../components/case-studies/CaseStudyEntry";
-import { PageShell } from "../components/layout/PageShell";
 import { SectionIntro } from "../components/landing/SectionIntro";
 import { SectionTitleBadge } from "../components/landing/SectionTitleBadge";
-import { CASE_STUDIES } from "../data/caseStudies";
+import { PageShell } from "../components/layout/PageShell";
+import { CASE_STUDIES } from "../config/caseStudies";
 import { SECTION_LEAD_PARAGRAPH_CLASS } from "../utils/sectionIntroContent";
 
 const caseStudiesIntroDescription = (
   <p className={SECTION_LEAD_PARAGRAPH_CLASS}>
-    Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies
+    Explore Real-Life Examples of Our Proven Digital Marketing Success through
+    Our Case Studies
   </p>
 );
 

@@ -61,7 +61,6 @@
 
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Scroll fino estilo VS Code (reutilizado em todo o app) */
     --vscode-scrollbar-thumb: 220 8% 44%;
     --vscode-scrollbar-thumb-hover: 217 12% 58%;
     --vscode-scrollbar-track: 222 22% 9%;
@@ -125,8 +124,6 @@
     font-family: 'JetBrains Mono', monospace;
   }
 
-  /* WebKit: barra fina (~4px) em todo o scroll nativo */
-
   *::-webkit-scrollbar {
     width: var(--vscode-scrollbar-size);
     height: var(--vscode-scrollbar-size);
@@ -182,11 +179,6 @@
     cursor: none;
   }
 
-  /**
-   * Área com scroll horizontal (tabs, código).
-   * A barra em si vem do estilo global em `*`.
-   * Use com `data-wheel-scroll-x` para roda vertical mover o conteúdo em X (como no VS Code).
-   */
   .vscode-scrollbar-x {
     overflow-x: auto;
     overflow-y: hidden;
@@ -196,7 +188,6 @@
     overscroll-behavior-x: contain;
   }
 
-  /** Stack só vertical (activity bar, etc.): barra = global; só documenta intenção) */
   .vscode-scrollbar-y {
     min-height: 0;
   }

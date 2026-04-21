@@ -2,7 +2,7 @@ import { SectionIntro } from "../components/landing/SectionIntro";
 import { SectionTitleBadge } from "../components/landing/SectionTitleBadge";
 import { PageShell } from "../components/layout/PageShell";
 import { ServiceCard } from "../components/services/ServiceCard";
-import { SERVICES } from "../data/services";
+import { SERVICES } from "../config/services";
 import { SECTION_LEAD_PARAGRAPH_CLASS } from "../utils/sectionIntroContent";
 
 const servicesIntroDescription = (

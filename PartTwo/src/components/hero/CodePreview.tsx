@@ -1,7 +1,6 @@
 const CodePreview = () => {
   return (
     <div className="w-full animate-fade-up opacity-0" style={{ animationDelay: "600ms" }}>
-      {/* Nome do arquivo — destaque maior, como tab ativa */}
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-border/50 pb-4 font-mono sm:pb-5">
         <span className="break-all text-base font-medium text-foreground/95 sm:text-lg md:text-xl">
           projeto_01_chatbot.py
@@ -9,7 +8,6 @@ const CodePreview = () => {
         <span className="shrink-0 text-xs text-muted-foreground sm:text-sm">Python</span>
       </div>
 
-      {/* Corpo do editor: gutter + código */}
       <div className="mt-5 grid grid-cols-[auto_1fr] font-mono text-sm leading-7 sm:mt-7 sm:text-[15px] sm:leading-8 md:text-base md:leading-8">
         <div className="select-none border-r border-border/80 bg-muted/20 py-6 pl-2 pr-4 text-right text-muted-foreground/55 tabular-nums sm:py-8 sm:pl-3 sm:pr-5">
           {Array.from({ length: 9 }).map((_, i) => (
@@ -46,7 +44,6 @@ const CodePreview = () => {
         </pre>
       </div>
 
-      {/* Terminal integrado ao editor */}
       <div className="mt-0 border-t border-border/60 bg-muted/10 px-2 py-3 font-mono text-xs text-muted-foreground sm:px-4 sm:py-4 sm:text-sm">
         <span className="text-primary">$</span> python projeto_01_chatbot.py{" "}
         <span className="text-[hsl(199_75%_55%)]">→ ✔ Pronto em 0.84s</span>

@@ -1,4 +1,4 @@
-import type { ServiceTitleHighlight } from "../../data/services";
+import type { ServiceTitleHighlight } from "../../config/services";
 import type { ServiceTwoLineTitleProps } from "./types";
 
 const highlightShell: Record<ServiceTitleHighlight, string> = {
