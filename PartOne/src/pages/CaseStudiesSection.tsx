@@ -21,10 +21,15 @@ export const CaseStudiesSection = () => {
           description="Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies"
         />
 
-        <div className="hidden overflow-hidden rounded-[45px] border border-secondary bg-white shadow-[0px_5px_0px_0px_#191A23] md:block">
-          <div className="grid grid-cols-1 divide-y divide-primary lg:grid-cols-3 lg:divide-x lg:divide-y-0">
-            {CASE_STUDIES.map((study) => (
-              <CaseStudyEntry key={study.logoAlt} study={study} layout="desktop" />
+        <div className="hidden overflow-hidden rounded-[45px] border border-secondary bg-secondary shadow-[0px_5px_0px_0px_#191A23] md:block">
+          <div className="grid lg:grid-cols-3">
+            {CASE_STUDIES.map((study, index) => (
+              <CaseStudyEntry
+                key={study.logoAlt}
+                study={study}
+                layout="desktop"
+                showLeadingDivider={index > 0}
+              />
             ))}
           </div>
         </div>

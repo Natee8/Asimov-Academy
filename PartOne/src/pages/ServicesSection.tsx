@@ -5,10 +5,11 @@ import { ServiceCard } from "../components/services/ServiceCard";
 import { SERVICES } from "../data/services";
 
 const servicesIntroDescription = (
-  <p className="w-full max-w-[580px] text-xl font-normal leading-[1.45] text-secondary">
-    At our digital marketing agency, we offer a range of services to help businesses grow their
+  <p className="w-full max-w-[min(100%,760px)] text-xl font-normal leading-[1.45] text-secondary md:max-w-[820px]">
+    At our digital marketing agency, we offer a range of services to help businesses grow and
+    succeed online.
     <br />
-    online presence and reach their goals.
+    These services include:
   </p>
 );
 

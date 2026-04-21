@@ -5,12 +5,15 @@ import serviceSix from "../assets/services/serviceSix.svg";
 import serviceThree from "../assets/services/serviceThree.svg";
 import serviceTwo from "../assets/services/serviceTwo.svg";
 
-export type ServiceCardVariant = "grey" | "lime" | "dark";
+export type ServiceSurface = "default" | "primary" | "secondary";
+
+export type ServiceTitleTone = "primary" | "white";
 
 export type ServiceItem = {
   line1: string;
   line2: string;
-  variant: ServiceCardVariant;
+  surface: ServiceSurface;
+  titleTone: ServiceTitleTone;
   image: string;
 };
 
@@ -18,37 +21,43 @@ export const SERVICES: readonly ServiceItem[] = [
   {
     line1: "Search engine",
     line2: "optimization",
-    variant: "grey",
+    surface: "default",
+    titleTone: "primary",
     image: serviceOne,
   },
   {
     line1: "Pay-per-click",
     line2: "advertising",
-    variant: "dark",
+    surface: "primary",
+    titleTone: "white",
     image: serviceTwo,
   },
   {
     line1: "Social Media",
     line2: "Marketing",
-    variant: "grey",
+    surface: "secondary",
+    titleTone: "white",
     image: serviceThree,
   },
   {
     line1: "Email",
     line2: "Marketing",
-    variant: "lime",
+    surface: "default",
+    titleTone: "primary",
     image: serviceFour,
   },
   {
     line1: "Content",
     line2: "Creation",
-    variant: "grey",
+    surface: "primary",
+    titleTone: "white",
     image: serviceFive,
   },
   {
     line1: "Analytics and",
     line2: "Tracking",
-    variant: "lime",
+    surface: "secondary",
+    titleTone: "primary",
     image: serviceSix,
   },
 ];

@@ -1,6 +1,12 @@
-export const CtaStarIllustration = () => (
+type CtaStarIllustrationProps = {
+  className?: string;
+};
+
+export const CtaStarIllustration = ({
+  className = "h-auto w-full max-w-[280px] shrink-0 text-primary md:max-w-[359px]",
+}: CtaStarIllustrationProps) => (
   <svg
-    className="h-auto w-full max-w-[280px] shrink-0 text-primary md:max-w-[359px]"
+    className={className}
     viewBox="0 0 359 395"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

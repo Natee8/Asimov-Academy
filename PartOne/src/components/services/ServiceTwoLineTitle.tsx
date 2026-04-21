@@ -1,16 +1,17 @@
 type ServiceTwoLineTitleProps = {
   line1: string;
   line2: string;
-  pillClassName: string;
+  /** Classes do título (ex.: text-primary, text-white) */
+  className: string;
 };
 
 export const ServiceTwoLineTitle = ({
   line1,
   line2,
-  pillClassName,
+  className,
 }: ServiceTwoLineTitleProps) => (
   <h3
-    className={`inline-block rounded-[7px] px-2.5 py-0.5 text-[22px] font-medium leading-[1.2] md:text-[26px] xl:text-[30px] ${pillClassName}`}
+    className={`text-[22px] font-medium leading-[1.2] md:text-[26px] xl:text-[30px] ${className}`}
   >
     {line1}
     <br />

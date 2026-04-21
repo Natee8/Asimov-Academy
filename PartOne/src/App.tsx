@@ -5,7 +5,7 @@ import { ServicesSection } from "./pages/ServicesSection";
 
 export const App = () => {
   return (
-    <div className="min-h-svh bg-default font-sans text-secondary antialiased">
+    <div className="min-h-svh bg-background font-sans text-secondary antialiased">
       <HomeSection />
       <ServicesSection />
       <CtaSection />
