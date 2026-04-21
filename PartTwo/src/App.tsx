@@ -1,7 +1,23 @@
-import { HeroSection } from './components/hero/HeroSection'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Index from "./pages/Index.tsx";
+import NotFound from "./pages/NotFound.tsx";
 
-function App() {
-  return <HeroSection />
-}
+const queryClient = new QueryClient();
 
-export default App
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/curso" element={<NotFound />} />
+        <Route path="/projetos" element={<NotFound />} />
+        <Route path="/comunidade" element={<NotFound />} />
+        <Route path="/precos" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  </QueryClientProvider>
+);
+
+export default App;
