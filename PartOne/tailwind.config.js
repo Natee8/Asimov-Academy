@@ -9,7 +9,7 @@ export default {
 			colors: {
 				primary: "#B9FF66",
 				secondary: "#191A23",
-				background: "#F3F3F3",
+				default: "#ffffff",
 			},
 			fontFamily: {
 				sans: ["Space Grotesk", "sans-serif"],
@@ -17,4 +17,4 @@ export default {
 		},
 	},
 	plugins: [],
-}
+};

@@ -19,7 +19,7 @@ export const HeroBlock = () => (
         and content creation.
       </p>
       <ButtonLink href="#cta" variant="solid-dark" className="w-fit">
-        Book a consultation
+        Request a quote
       </ButtonLink>
     </div>
 

@@ -6,7 +6,7 @@ import notion from "../../assets/logos/notion.svg";
 import zoom from "../../assets/logos/zoom.svg";
 
 const stripClass =
-  "flex flex-wrap items-center justify-between gap-8 border-y border-secondary py-10 md:gap-10 md:py-[70px] xl:flex-nowrap";
+  "flex flex-wrap items-center justify-between gap-8 py-6 md:gap-10 md:py-8 xl:flex-nowrap";
 
 const logoClass = "h-8 w-auto opacity-90 grayscale md:h-9";
 

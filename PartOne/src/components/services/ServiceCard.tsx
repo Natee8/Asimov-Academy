@@ -1,4 +1,3 @@
-import serviceIllustration from "../../assets/services/serviceSix.svg";
 import { LearnMoreLink } from "../landing/LearnMoreLink";
 import { ServiceTwoLineTitle } from "./ServiceTwoLineTitle";
 import type { ServiceItem } from "../../data/services";
@@ -18,19 +17,7 @@ const titlePill: Record<ServiceItem["variant"], string> = {
   dark: "bg-primary text-secondary",
 };
 
-const bodyText: Record<ServiceItem["variant"], string> = {
-  grey: "text-secondary/80",
-  lime: "text-secondary/85",
-  dark: "text-white/85",
-};
-
-export const ServiceCard = ({
-  line1,
-  line2,
-  description,
-  variant,
-  showIllustration,
-}: ServiceItem) => {
+export const ServiceCard = ({ line1, line2, variant, image }: ServiceItem) => {
   const learnVariant = variant === "dark" ? "on-dark" : "on-light";
 
   return (
@@ -41,22 +28,17 @@ export const ServiceCard = ({
           line2={line2}
           pillClassName={titlePill[variant]}
         />
-        <p className={`mt-4 text-base leading-[1.45] md:text-lg ${bodyText[variant]}`}>
-          {description}
-        </p>
       </div>
 
       <div className="relative z-1 mt-10 md:mt-0">
         <LearnMoreLink href="#cta" variant={learnVariant} />
       </div>
 
-      {showIllustration && (
-        <img
-          src={serviceIllustration}
-          alt=""
-          className="pointer-events-none absolute bottom-2 right-2 w-[45%] max-w-[200px] select-none object-contain md:bottom-4 md:right-4 md:max-w-[240px] xl:max-w-[280px]"
-        />
-      )}
+      <img
+        src={image}
+        alt=""
+        className="pointer-events-none absolute bottom-2 right-2 w-[45%] max-w-[200px] select-none object-contain md:bottom-4 md:right-4 md:max-w-[240px] xl:max-w-[280px]"
+      />
     </article>
   );
 };

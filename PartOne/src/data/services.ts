@@ -1,55 +1,54 @@
+import serviceFive from "../assets/services/serviceFive.svg";
+import serviceFour from "../assets/services/serviceFour.svg";
+import serviceOne from "../assets/services/serviceOne.svg";
+import serviceSix from "../assets/services/serviceSix.svg";
+import serviceThree from "../assets/services/serviceThree.svg";
+import serviceTwo from "../assets/services/serviceTwo.svg";
+
 export type ServiceCardVariant = "grey" | "lime" | "dark";
 
 export type ServiceItem = {
   line1: string;
   line2: string;
-  description: string;
   variant: ServiceCardVariant;
-  showIllustration?: boolean;
+  image: string;
 };
 
 export const SERVICES: readonly ServiceItem[] = [
   {
     line1: "Search engine",
     line2: "optimization",
-    description:
-      "Improve visibility and organic traffic with technical and content SEO tailored to your goals.",
     variant: "grey",
-    showIllustration: true,
+    image: serviceOne,
   },
   {
     line1: "Pay-per-click",
     line2: "advertising",
-    description:
-      "Reach high-intent audiences with structured campaigns, testing, and continuous optimization.",
     variant: "dark",
+    image: serviceTwo,
   },
   {
     line1: "Social Media",
     line2: "Marketing",
-    description:
-      "Grow communities and engagement with creative calendars, paid boosts, and reporting.",
     variant: "grey",
+    image: serviceThree,
   },
   {
     line1: "Email",
     line2: "Marketing",
-    description:
-      "Nurture leads and customers with segmentation, automation, and measurable lifecycle flows.",
     variant: "lime",
+    image: serviceFour,
   },
   {
     line1: "Content",
     line2: "Creation",
-    description:
-      "Ship landing pages, articles, and creative assets that match your brand voice and funnel.",
     variant: "grey",
+    image: serviceFive,
   },
   {
     line1: "Analytics and",
     line2: "Tracking",
-    description:
-      "Instrument your stack, define KPIs, and build dashboards your team can trust week over week.",
     variant: "lime",
+    image: serviceSix,
   },
 ];

@@ -1,5 +1,4 @@
 import { CaseStudyEntry } from "../components/case-studies/CaseStudyEntry";
-import { PartnersLogoStrip } from "../components/case-studies/PartnersLogoStrip";
 import { PageShell } from "../components/layout/PageShell";
 import { SectionIntro } from "../components/landing/SectionIntro";
 import { SectionTitleBadge } from "../components/landing/SectionTitleBadge";
@@ -9,7 +8,7 @@ export const CaseStudiesSection = () => {
   return (
     <section
       id="case-studies"
-      className="bg-background pb-24 md:pb-[120px] xl:pb-[160px]"
+      className="bg-default pb-24 md:pb-[120px] xl:pb-[160px]"
       aria-labelledby="case-studies-heading"
     >
       <PageShell className="flex flex-col gap-10 md:gap-[70px] xl:gap-[80px]">
@@ -35,8 +34,6 @@ export const CaseStudiesSection = () => {
             <CaseStudyEntry key={study.logoAlt} study={study} layout="mobile" />
           ))}
         </div>
-
-        <PartnersLogoStrip />
       </PageShell>
     </section>
   );

@@ -6,7 +6,7 @@ export const CtaSection = () => {
   return (
     <section
       id="cta"
-      className="bg-background pb-20 md:pb-[100px] xl:pb-[140px]"
+      className="bg-default pb-20 md:pb-[100px] xl:pb-[140px]"
       aria-labelledby="cta-heading"
     >
       <PageShell>
@@ -23,7 +23,7 @@ export const CtaSection = () => {
               services can help your business grow and succeed online.
             </p>
             <ButtonLink href="#top" variant="solid-lime" className="w-fit">
-              Book a consultation
+              Request a quote
             </ButtonLink>
           </div>
           <div className="flex justify-center md:justify-end md:pr-2">

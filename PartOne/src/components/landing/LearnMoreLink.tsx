@@ -30,7 +30,7 @@ export const LearnMoreLink = ({
       </span>
       <span
         className={`flex size-10 items-center justify-center rounded-full border md:size-[41px] ${
-          isDark ? "border-white" : "border-secondary bg-background"
+          isDark ? "border-white" : "border-secondary bg-default"
         }`}
       >
         <img
