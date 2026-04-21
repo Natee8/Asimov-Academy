@@ -6,11 +6,11 @@ export const CtaSection = () => {
   return (
     <section
       id="cta"
-      className="bg-default pb-20 md:pb-[100px] xl:pb-[140px]"
+      className="bg-background pb-20 md:pb-[100px] xl:pb-[140px]"
       aria-labelledby="cta-heading"
     >
       <PageShell>
-        <div className="relative overflow-visible rounded-[30px] border border-secondary bg-default px-6 py-10 shadow-[0px_5px_0px_0px_#191A23] md:rounded-[45px] md:px-[60px] md:py-[60px] xl:px-[100px] xl:py-[70px]">
+        <div className="relative overflow-visible rounded-[30px] bg-default px-6 py-10 md:rounded-[45px] md:px-[60px] md:py-[60px] xl:px-[100px] xl:py-[70px]">
           <div className="relative z-10 flex max-w-[540px] flex-col gap-6 md:gap-8">
             <h2
               id="cta-heading"

@@ -42,7 +42,7 @@ export const ServiceCard = ({ line1, line2, surface, titleTone, image }: Service
       <img
         src={image}
         alt=""
-        className="pointer-events-none absolute bottom-3 right-3 h-[147.62px] w-[210px] max-w-[min(210px,52%)] select-none object-contain md:bottom-5 md:right-5"
+        className="pointer-events-none absolute right-4 top-1/2 z-0 max-h-[min(200px,58%)] w-auto max-w-[min(210px,48%)] -translate-y-1/2 select-none object-contain object-center md:right-6 lg:right-8"
       />
     </article>
   );

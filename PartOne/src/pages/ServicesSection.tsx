@@ -5,7 +5,7 @@ import { ServiceCard } from "../components/services/ServiceCard";
 import { SERVICES } from "../data/services";
 
 const servicesIntroDescription = (
-  <p className="w-full max-w-[min(100%,760px)] text-xl font-normal leading-[1.45] text-secondary md:max-w-[820px]">
+  <p className="w-full max-w-[min(100%,900px)] text-xl font-normal leading-[1.45] text-secondary md:max-w-[min(100%,1000px)] lg:max-w-[1040px]">
     At our digital marketing agency, we offer a range of services to help businesses grow and
     succeed online.
     <br />
@@ -17,7 +17,7 @@ export const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="bg-default pb-20 pt-4 md:pb-[110px] md:pt-0 xl:pb-[140px]"
+      className="bg-background pb-20 pt-4 md:pb-[110px] md:pt-0 xl:pb-[140px]"
       aria-labelledby="services-heading"
     >
       <PageShell className="flex flex-col gap-10 md:gap-[40px] xl:gap-[80px]">
