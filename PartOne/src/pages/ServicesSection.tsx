@@ -1,16 +1,14 @@
-import { PageShell } from "../components/layout/PageShell";
 import { SectionIntro } from "../components/landing/SectionIntro";
 import { SectionTitleBadge } from "../components/landing/SectionTitleBadge";
+import { PageShell } from "../components/layout/PageShell";
 import { ServiceCard } from "../components/services/ServiceCard";
 import { SERVICES } from "../data/services";
 import { SECTION_LEAD_PARAGRAPH_CLASS } from "../utils/sectionIntroContent";
 
 const servicesIntroDescription = (
   <p className={SECTION_LEAD_PARAGRAPH_CLASS}>
-    At our digital marketing agency, we offer a range of services to help businesses grow and
-    succeed online.
-    <br />
-    These services include:
+    At our digital marketing agency, we offer a range of services to help
+    businesses grow and succeed online. These services include:
   </p>
 );
 
@@ -24,7 +22,9 @@ export const ServicesSection = () => {
       <PageShell className="flex flex-col gap-10 md:gap-[40px] xl:gap-[80px]">
         <SectionIntro
           title={
-            <SectionTitleBadge id="services-heading">Services</SectionTitleBadge>
+            <SectionTitleBadge id="services-heading">
+              Services
+            </SectionTitleBadge>
           }
           description={servicesIntroDescription}
         />

@@ -1,6 +1,6 @@
-import { CtaStarIllustration } from "../components/cta/CtaStarIllustration";
-import { PageShell } from "../components/layout/PageShell";
+import pricingIllustration from "../assets/Pricing/Pricing.svg";
 import { ButtonLink } from "../components/landing/ButtonLink";
+import { PageShell } from "../components/layout/PageShell";
 
 export const CtaSection = () => {
   return (
@@ -27,13 +27,14 @@ export const CtaSection = () => {
             </ButtonLink>
           </div>
           <div
-            className="pointer-events-none absolute right-0 top-1/2 z-0 hidden -translate-y-1/2 translate-x-[6%] md:block"
+            className="pointer-events-none absolute right-15 top-1/2 z-0 hidden -translate-y-1/2 translate-x-[6%] md:block"
             aria-hidden
           >
-            <CtaStarIllustration className="h-[394px] w-[494px] max-w-none shrink-0 text-primary" />
-          </div>
-          <div className="mt-8 flex justify-center md:hidden" aria-hidden>
-            <CtaStarIllustration className="mx-auto h-[220px] w-[280px] max-w-full text-primary" />
+            <img
+              src={pricingIllustration}
+              alt=""
+              className="h-[510px] w-[414px] max-w-none shrink-0 object-contain"
+            />
           </div>
         </div>
       </PageShell>

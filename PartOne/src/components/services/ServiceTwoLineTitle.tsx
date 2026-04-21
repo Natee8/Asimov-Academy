@@ -22,7 +22,7 @@ export const ServiceTwoLineTitle = ({
 }: ServiceTwoLineTitleProps) => {
   const hi = highlightShell[highlight];
   return (
-    <h3 className="flex flex-col items-start gap-1">
+    <h3 className="flex flex-col items-start">
       <span className={`${lineClass} ${hi}`}>{line1}</span>
       <span className={`${lineClass} ${hi}`}>{line2}</span>
     </h3>

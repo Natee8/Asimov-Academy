@@ -27,9 +27,15 @@ export const LearnMoreLink = ({
   return (
     <a
       href={href}
-      className={`inline-flex items-center gap-[15px] text-xl font-normal leading-none ${className}`.trim()}
+      className={`group inline-flex items-center gap-[15px] text-xl font-normal leading-none ${className}`.trim()}
     >
-      <img src={src} alt="" width={41} height={41} className="size-[41px] shrink-0" />
+      <img
+        src={src}
+        alt=""
+        width={41}
+        height={41}
+        className="size-[41px] shrink-0 transition-transform duration-200 ease-out group-hover:scale-110 group-focus-visible:scale-110"
+      />
       <span className={textClassName}>{label}</span>
     </a>
   );
